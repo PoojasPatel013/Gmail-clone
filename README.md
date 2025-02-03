@@ -2,6 +2,6 @@
 
 This is clone of Gmail by Google.
 
-** Technical Stack
+## Technical Stack
 Reactjs 
 Nodejs
