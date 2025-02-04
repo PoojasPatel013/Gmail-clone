@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from 'react'
 import { MdRefresh, MdMoreVert, MdDelete, MdArchive } from "react-icons/md"
 import { IoMdCheckboxOutline, IoMdCheckbox, IoMdStarOutline, IoMdStar } from "react-icons/io"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
@@ -135,4 +135,3 @@ const EmailList = () => {
 }
 
 export default EmailList
-
