@@ -15,7 +15,7 @@ let emails = [
     time: '10:30 AM',
     read: false,
     starred: false,
-    category: 'primary',
+    category: 'social',
     labels: ['github', 'notifications']
   },
   {
@@ -26,7 +26,7 @@ let emails = [
     time: '11:45 AM',
     read: true,
     starred: true,
-    category: 'social',
+    category: 'primary',
     labels: ['jobs']
   },
   {
@@ -48,8 +48,19 @@ let emails = [
     time: '12:05 PM',
     read: false,
     starred: false,
-    category: 'primary',
+    category: 'social',
     labels: ['jobs']
+  },
+  {
+    id: 4,
+    sender: 'ITC',
+    subject: 'Your appliaction has been submitted',
+    preview: 'You have applied in a job fair, your resume has passed round 1. We look forward to see you shortlist.',
+    time: '12:05 PM',
+    read: false,
+    starred: false,
+    category: 'primary',
+    labels: ['careers']
   }
 ];
 
