@@ -40,10 +40,30 @@ let emails = [
     category: 'promotions',
     labels: ['shopping']
   },
+  {
+    id: 4,
+    sender: 'Indeed',
+    subject: 'Your appliaction has been submitted',
+    preview: 'You have applied in a job fair, your resume has passed round 1. We look forward to see you shortlist.',
+    time: '12:05 PM',
+    read: false,
+    starred: false,
+    category: 'primary',
+    labels: ['jobs']
+  }
 ];
 
 app.get('/api/emails', (req, res) => {
   res.json(emails);
+});
+app.get('/api/emails/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const email = emails.find(email => email.id === id);
+  if (email) {
+    res.json(email);
+  } else {
+    res.status(404).json({ error: 'Email not found' });
+  }
 });
 
 app.post('/api/emails/toggle-star', (req, res) => {

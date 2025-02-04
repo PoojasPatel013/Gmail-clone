@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { MdRefresh, MdMoreVert, MdDelete, MdArchive } from "react-icons/md"
 import { IoMdCheckboxOutline, IoMdCheckbox, IoMdStarOutline, IoMdStar } from "react-icons/io"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
@@ -17,6 +18,7 @@ const EmailList = () => {
     deselectAllEmails,
   } = useEmail()
 
+  const navigate = useNavigate()
   const [hoveredEmail, setHoveredEmail] = useState(null)
 
   const visibleEmails = emails.filter((email) => email.category === currentCategory)
@@ -83,14 +85,19 @@ const EmailList = () => {
       </div>
       <div>
         {visibleEmails.map((email) => (
-          <div
+          <Link
+            to={`/email/${email.id}`}
             key={email.id}
             className={`flex items-center px-4 py-2 border-b hover:shadow-md cursor-pointer
               ${hoveredEmail === email.id ? "bg-[#f2f6fc]" : "bg-white"}
               ${selectedEmails.has(email.id) ? "bg-[#c2e7ff]" : ""}`}
             onMouseEnter={() => setHoveredEmail(email.id)}
             onMouseLeave={() => setHoveredEmail(null)}
-            onClick={() => markAsRead([email.id])}
+            onClick={(e) => {
+              e.preventDefault();
+              markAsRead([email.id]);
+              navigate(`/email/${email.id}`);
+            }}
           >
             <div className="flex items-center gap-4 min-w-[240px]">
               <button
@@ -127,7 +134,7 @@ const EmailList = () => {
               <span className="text-gray-500 truncate">{email.preview}</span>
             </div>
             <div className="ml-4 text-sm text-gray-600">{email.time}</div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
