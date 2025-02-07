@@ -1,11 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import EmailList from "./components/EmailList";
-import Email from "./components/Email";
-import CategoryTabs from "./components/CategoryTabs";
-import { EmailProvider } from "./context/EmailContext";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import Sidebar from "./components/Sidebar"
+import EmailList from "./components/EmailList"
+import Email from "./components/Email"
+import CategoryTabs from "./components/CategoryTabs"
+import { EmailProvider } from "./context/EmailContext"
 
 function App() {
   return (
@@ -26,7 +25,8 @@ function App() {
         </div>
       </EmailProvider>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
+

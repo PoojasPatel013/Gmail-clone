@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { LuPencil } from "react-icons/lu"
 import { MdInbox } from "react-icons/md"
 import { IoMdStarOutline } from "react-icons/io"
@@ -5,6 +6,7 @@ import { IoMdTime } from "react-icons/io"
 import { CiPaperplane } from "react-icons/ci"
 import { RiDraftLine } from "react-icons/ri"
 import { IoIosArrowDown } from "react-icons/io"
+import NewMessage from './NewMessage'
 
 const sidebarItems = [
   {
@@ -37,10 +39,19 @@ const sidebarItems = [
 ]
 
 const Sidebar = () => {
+  const [showNewMessage, setShowNewMessage] = useState(false)
+
+  const handleComposeClick = () => {
+    setShowNewMessage(true)
+  }
+
   return (
     <div className="w-64 h-full bg-white pt-2 flex flex-col">
       <div className="px-4 mb-2">
-        <button className="flex items-center gap-4 bg-[#c2e7ff] hover:bg-[#b4deff] hover:shadow-md transition-all px-6 py-4 rounded-2xl w-full">
+        <button
+          onClick={handleComposeClick}
+          className="flex items-center gap-4 bg-[#c2e7ff] hover:bg-[#b4deff] hover:shadow-md transition-all px-6 py-4 rounded-2xl w-full"
+        >
           <LuPencil size={18} />
           <span className="font-medium">Compose</span>
         </button>
@@ -58,9 +69,9 @@ const Sidebar = () => {
           </div>
         ))}
       </div>
+      {showNewMessage && <NewMessage onClose={() => setShowNewMessage(false)} />}
     </div>
   )
 }
 
 export default Sidebar
-
