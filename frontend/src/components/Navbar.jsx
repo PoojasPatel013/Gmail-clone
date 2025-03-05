@@ -38,7 +38,7 @@ const Navbar = () => {
           <CgMenuGridO className="text-gray-500" size={20} />
         </button>
         <button className='h-8 w-8 rounded-full bg-green-600 text-white hover:bg-green-800 flex items-center justify-center'>
-            P
+            PP
         </button>
       
       </div>
